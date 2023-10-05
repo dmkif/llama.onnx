@@ -12,7 +12,7 @@ class OrtWrapper:
     def __init__(self, onnxfile: str):
         assert os.path.exists(onnxfile)
         self.onnxfile = onnxfile
-        self.sess = ort.InferenceSession(onnxfile)
+        self.sess = ort.InferenceSession(onnxfile, providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
         self.inputs = self.sess.get_inputs()
         outputs = self.sess.get_outputs()
         self.output_names = [output.name for output in outputs]
