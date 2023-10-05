@@ -264,7 +264,7 @@ def parse_args():
         type=float,
         help='onnxruntime memory pool size. default value is 32GB')
     parser.add_argument('--fp16',
-                        default=True,
+                        default=False,
                         type=bool,
                         help='enable fp16 inference, default True.')
     args = parser.parse_args()
